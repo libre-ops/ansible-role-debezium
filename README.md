@@ -38,5 +38,5 @@ Example playbook
   hosts: webservers
 
   roles:
-    - role: debezium
+    - role: libre_ops.debezium
 ```
