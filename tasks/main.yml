@@ -1,0 +1,36 @@
+---
+
+- name: install python lxml
+  apt:
+    name: "{{ lxml_package }}"
+  become: yes
+
+- name: create debezium dir
+  file:
+    path: "{{ debezium_app_dir }}"
+    state: directory
+    mode: 0750
+    owner: root
+  become: yes
+
+- name: download debezium from mavern central
+  maven_artifact:
+    group_id: io.debezium
+    artifact_id: "{{ debezium_connector_name }}"
+    version: "{{ debezium_version }}"
+    classifier: plugin
+    extension: tar.gz
+    dest: "{{ debezium_download_path }}"
+  register: debezium_downloaded
+  become: yes
+
+- name: extract debezium to kafka plugin dir
+  unarchive:
+    src: "{{ debezium_download_path }}"
+    dest: "{{ kafka_plugins_path }}"
+    owner: "{{ kafka_user }}"
+    group: "{{ kafka_group }}"
+    remote_src: yes
+    creates: "{{ debezium_install_path }}/{{ debezium_jar_file }}"
+  become: yes
+  notify: "restart {{ kafka_connect_service }}"

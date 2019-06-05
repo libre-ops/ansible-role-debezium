@@ -1,0 +1,16 @@
+---
+
+lxml_package: python3-lxml # Set to `python-lxml` if using python 2.7
+
+kafka_user: cp-kafka
+kafka_group: confluent
+kafka_plugins_path: /usr/share/java
+kafka_connect_service: confluent-kafka-connect
+
+debezium_connector_name: debezium-connector-postgres
+debezium_version: "0.9.5.Final"
+debezium_app_dir: /opt/debezium
+debezium_jar_file: "{{ debezium_connector_name }}-{{ debezium_version }}.jar"
+debezium_archive: "{{ debezium_connector_name }}-{{ debezium_version }}-plugin.tar.gz"
+debezium_download_path: "{{ debezium_app_dir }}/{{ debezium_archive }}"
+debezium_install_path: "{{ kafka_plugins_path }}/{{ debezium_connector_name }}"

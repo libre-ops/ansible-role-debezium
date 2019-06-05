@@ -1,0 +1,7 @@
+---
+
+- name: restart {{ kafka_connect_service }}
+  systemd:
+    name: "{{ kafka_connect_service }}"
+    state: restarted
+  become: yes
