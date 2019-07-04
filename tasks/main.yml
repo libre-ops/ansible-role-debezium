@@ -34,3 +34,7 @@
     creates: "{{ debezium_install_path }}/{{ debezium_jar_file }}"
   become: yes
   notify: "restart {{ kafka_connect_service }}"
+
+- name: flush handlers before proceeding
+  meta: flush_handlers
+  when: debezium_flush_handlers

@@ -14,3 +14,4 @@ debezium_jar_file: "{{ debezium_connector_name }}-{{ debezium_version }}.jar"
 debezium_archive: "{{ debezium_connector_name }}-{{ debezium_version }}-plugin.tar.gz"
 debezium_download_path: "{{ debezium_app_dir }}/{{ debezium_archive }}"
 debezium_install_path: "{{ kafka_plugins_path }}/{{ debezium_connector_name }}"
+debezium_flush_handlers: true
