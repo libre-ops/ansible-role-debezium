@@ -21,7 +21,7 @@ Setup
 -----
 
 You'll most likely be using Kafka Connect, and either the `protobufs` or `wal2json` plugins. These all require 
-additional setup that isn't included here. The defaults for interacting with Kafka assume the use of `Confluent`:
+additional setup that isn't included here, but you can install `wal2json` via this [role](https://github.com/libre-ops/wal2json). The defaults for interacting with Kafka assume the use of `Confluent`:
 ```
 kafka_user: cp-kafka
 kafka_group: confluent
