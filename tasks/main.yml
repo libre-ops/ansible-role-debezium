@@ -16,6 +16,7 @@
 - name: download debezium from mavern central
   maven_artifact:
     group_id: io.debezium
+    repository_url: "{{ debezium_mavern_url }}"
     artifact_id: "{{ debezium_connector_name }}"
     version: "{{ debezium_version }}"
     classifier: plugin

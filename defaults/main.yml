@@ -9,6 +9,7 @@ kafka_connect_service: confluent-kafka-connect
 
 debezium_connector_name: debezium-connector-postgres
 debezium_version: "0.9.5.Final"
+debezium_mavern_url: "https://repo1.maven.org/maven2"
 debezium_app_dir: /opt/debezium
 debezium_jar_file: "{{ debezium_connector_name }}-{{ debezium_version }}.jar"
 debezium_archive: "{{ debezium_connector_name }}-{{ debezium_version }}-plugin.tar.gz"
